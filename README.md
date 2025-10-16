@@ -1,75 +1,31 @@
-# React + TypeScript + Vite
+# Freecell 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A standard 52 card game, akin to solitaire, where in the case of freecell, all cards are dealt face-up, and there are only a few small percentage of games played that are unsolvable.
 
-Currently, two official plugins are available:
+## Rules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Game setup: The layout has eight cascades (tableaus), four open cells, and four foundations.
 
-## React Compiler
+Cards are dealt face-up: four cascades have seven cards each, and four cascades have six cards each.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Goal: Move all cards to the four foundation piles, each built up in suit order from Ace to King.
 
-Note: This will impact Vite dev & build performances.
+How to build on the Tableau: Cards in cascades (tableaus) are built down by alternating colors (red on black, black on red). Only the top card of a cascade may be moved.
 
-## Expanding the ESLint configuration
+Cells: The four open cells each hold one card temporarily. A card in a cell can be moved to a tableau, an empty cascade, or a foundation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Empty Spaces: An empty cascade can hold any single card (or a sequence, depending on free cells).
+An empty cell can hold any single card.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+When the game is won: The game is won when all cards are moved to the foundations in correct order.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Technical aspects of the project
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> TypeScript, React, Vite + (...more to come..*add here*)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contributors
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> Ethan Deister 
+
+> Matthew Granger
