@@ -23,7 +23,6 @@ When the game is won: The game is won when all cards are moved to the foundation
 
 > TypeScript, React, Vite + (...more to come..*add here*)
 
-
 ## Contributors
 
 > Ethan Deister 
